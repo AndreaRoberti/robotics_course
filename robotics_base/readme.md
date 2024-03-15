@@ -22,7 +22,17 @@ This repository contains a Catkin workspace for a ROS (Robot Operating System) p
 
 Feel free to modify and expand upon this structure to suit your specific ROS project needs.
 
-## 
+## Launch files 
+
+It launches the c++ code
+```bash
+ roslaunch robotics_base cpp_robotics_base.launch 
+ ```
+ 
+ It launches the python code
+ ```bash
+ roslaunch robotics_base python_robotics_base.launch 
+ ```
 
 ## CoppeliaSIM
 
