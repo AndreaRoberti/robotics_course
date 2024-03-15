@@ -26,7 +26,7 @@ catkin init
 ```bash
 cd robotics_ws
 cd src
-git clone REPO_NAME.git
+git clone https://github.com/AndreaRoberti/robotics_course.git
 ```
 
 
