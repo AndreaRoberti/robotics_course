@@ -10,6 +10,13 @@
 
 - Install catkin tools [doc](https://catkin-tools.readthedocs.io/en/latest/installing.html#installing-on-ubuntu-with-apt-get)
 
+## Additional 
+
+Fancy terminal
+```bash
+sudo apt-get update
+sudo apt-get install terminator
+```
 
 ## How to create catkin workspace
 
