@@ -36,6 +36,12 @@ cd src
 git clone https://github.com/AndreaRoberti/robotics_course.git
 ```
 
+so the final structure will be like :
+
+- robotics_ws
+  - src
+    - robotics_base
+
 
 ## How to create a *NEW* catkin package
 
