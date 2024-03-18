@@ -42,6 +42,12 @@ so the final structure will be like :
   - src
     - robotics_base
 
+Finally you can build the package(s), anywhere inside the catkin workspace:
+
+```bash
+catkin build
+```
+
 
 ## How to create a *NEW* catkin package
 
