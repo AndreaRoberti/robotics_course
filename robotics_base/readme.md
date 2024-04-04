@@ -52,12 +52,9 @@ roscore
 - Open one of the simulated scene you can find in *coppelia_scenes* folder
 
 ###
-In CoppeliaSIM folder we have two different scenes:
+In CoppeliaSIM folder we have different scenes:
 
-- panda.ttt
-- sphere.ttt
-
-In the second scene we have a simple sphere, that will publish the position of the sphere. So you can play with this scene
+In the Sphere scene we have a simple example with just a sphere, that will publish the position of the sphere. So you can play with this scene
 
 ```
 sphere_pub = simROS.advertise('/sphere/pose','geometry_msgs/PoseStamped')
