@@ -12,6 +12,8 @@ RoboticsBase::~RoboticsBase()
 void RoboticsBase::init()
 {
     private_nh_.param("pose_name", pose_name_, std::string("/pose_name_default"));
+    private_nh_.param("angular_velocity", angular_velocity_, 0.1);
+    private_nh_.param("radius", radius_, 1.0);
 
     pose_pub_ = private_nh_.advertise<geometry_msgs::PoseStamped>(pose_name_, 1);
 }
@@ -56,6 +58,16 @@ void RoboticsBase::getTransform()
         q.setRPY(0, 0, 1.57);
         transform.setRotation(q);
         br_.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "link_1"));
+
+                // Calculate new transform
+        double time_now = ros::Time::now().toSec();
+        double angle = angular_velocity_ * time_now;
+        double x = transform.getOrigin().x() + radius_ * std::cos(angle);
+        double z = transform.getOrigin().z() + radius_ * std::sin(angle);
+        tf::Transform transform_rot_xz;
+        transform_rot_xz.setOrigin(tf::Vector3(x, 0, z));
+        transform_rot_xz.setRotation(tf::Quaternion::getIdentity());
+        br_.sendTransform(tf::StampedTransform(transform_rot_xz, ros::Time::now(), "world", "link_circular"));
     }
     catch (tf::TransformException ex)
     {
