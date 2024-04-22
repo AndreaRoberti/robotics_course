@@ -59,7 +59,7 @@ class StewartPlatform():
     def matrix_to_pose(self,matrix):
         # Extract rotation matrix and position from the transformation matrix
         rotation_matrix = matrix[:3, :3]
-        print(rotation_matrix)
+        # print(rotation_matrix)
         position = matrix[:3, 3]
 
         # Extract quaternion from rotation matrix
