@@ -32,27 +32,27 @@ class FeatureExtraction():
         bgr_img = self.bridge_.imgmsg_to_cv2(img)  #convert ROS to OpenCV
         flipped_image = cv2.flip(bgr_img, 1) # IN SIM FLIP IMAGE
 
-        hsv = cv2.cvtColor(flipped_image, cv2.COLOR_BGR2HSV)
-        # Define the range of red color in HSV
-        lower_red = np.array([0, 0, 0])
-        upper_red = np.array([10, 255, 255])
+        # hsv = cv2.cvtColor(flipped_image, cv2.COLOR_BGR2HSV)
+        # # Define the range of red color in HSV
+        # lower_red = np.array([0, 0, 0])
+        # upper_red = np.array([10, 255, 255])
 
-        # Threshold the HSV image to get only red colors
-        mask1 = cv2.inRange(hsv, lower_red, upper_red)
+        # # Threshold the HSV image to get only red colors
+        # mask1 = cv2.inRange(hsv, lower_red, upper_red)
 
-        # Additional range for red in HSV (because red wraps around the 0/180 point in HSV)
-        lower_red = np.array([160, 0, 0])
-        upper_red = np.array([180, 255, 255])
+        # # Additional range for red in HSV (because red wraps around the 0/180 point in HSV)
+        # lower_red = np.array([160, 50, 100])
+        # upper_red = np.array([190, 255, 255])
 
-        # Threshold the HSV image to get only red colors
-        mask2 = cv2.inRange(hsv, lower_red, upper_red)
+        # # Threshold the HSV image to get only red colors
+        # mask2 = cv2.inRange(hsv, lower_red, upper_red)
 
-        # Combine the masks
-        mask = mask1 + mask2
-        # Bitwise-AND mask and original image
-        res = cv2.bitwise_and(flipped_image, flipped_image, mask=mask)
+        # # Combine the masks
+        # mask = mask1 + mask2
+        # # Bitwise-AND mask and original image
+        # res = cv2.bitwise_and(flipped_image, flipped_image, mask=mask)
 
-        self.image_pub_.publish(self.bridge_.cv2_to_imgmsg(res, 'bgr8'))
+        self.image_pub_.publish(self.bridge_.cv2_to_imgmsg(res, 'rgb8'))
 
 
 #------------------------------------------------------------------
